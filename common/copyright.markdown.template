@@ -1,0 +1,6 @@
+%# vim: filetype=markdown :
+<%
+import os, configIniUtils
+install = configIniUtils.get_install_url()
+%>
+&copy; 2016 Chris McKinney; [LICENSE]({{install}}/LICENSE)

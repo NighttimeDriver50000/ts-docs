@@ -1,0 +1,179 @@
+%# vim: filetype=markdown :
+
+## Overrides
+
+In your installation directory (typically called `tachibanasite`), there is a
+directory called `common`. In it are TachibanaSite's defaults for its "common
+override" files. These files fill particular roles on a TachibanaSite page
+[[Example]](show/).
+
+The files are searched for in this order:
+
+1.  The current page directory.
+
+2.  If [recursive common overrides](#config-recursive_common_ove) are
+    enabled, each directory from the current up to the
+    [local host path](#config-local_host_path).
+
+3.  *&lt;install path&gt;*`/../common/`
+
+4.  *&lt;install path&gt;*`/common/` (the aforementioned defaults)
+
+## *Typically Site-Global* {#global}
+
+These files are typically placed in *&lt;install path&gt;*`/../common/`. They
+*can* be overridden for particular pages, but usually are not for most.
+
+### `config.ini` {#config}
+
+This file contains the settings for your TachibanaSite install. There are
+several namespaces and fields, which will be described here in detail.
+
+#### Namespace: `TachibanaSite`
+
+This namespace is used for almost all of the TachibanaSite settings.
+
+% import configIniUtils
+% config = configIniUtils.get_config()
+
+##### `version` (default: <code>{{config.get('TachibanaSite', 'version')}}</code>) {#config-version}
+
+This is the TachibanaSite version. There is no real reason to override this.
+
+##### `site_title` (default: `""`) {#config-site_title}
+
+This is the title for the site, which will be appended to each page's
+`<title>`.
+
+##### `local_host_path` (default: `"/var/www"`) {#config-local_host_path}
+
+This is the path on disk that corresponds to the URL `/` on your site.
+**Definitely** set this on new installations.
+
+##### `install_url` (default: `"/tachibanasite"`) {#config-install_url}
+
+This is the URL path from the site root to the TachibanaSite installation
+directory. This is also **important** to set on new installations.
+
+##### `theme_name` (default: `"default"`) {#config-theme_name}
+
+This is the name of the [theme](../themes/) to use.
+
+##### `force_ssl` (default: `no`) {#config-force_ssl}
+
+If set to `yes`, this will automatically redirect users to the SSL version of
+your site.
+
+##### `email` (default: `"example@example.com"`) {#config-email}
+
+Set this to your email address. [`SendMail.php`][SendMail] will email to this
+email address.
+
+[SendMail]: https://github.com/NighttimeDriver50000/tachibanasite/blob/master/utils/SendMail.php
+
+##### `sender_email` (default: `"tachibanasite@localhost"`) {#config-sender_email}
+
+Set this to *&lt;some name&gt;*@*&lt;your server&gt;*. The default will
+*probably* send correctly, but most email systems will flag messages from
+`localhost` as spam, so you should probably change it if you plan to use
+[`SendMail.php`][SendMail].
+
+##### `enable_templates` (default: `no`) {#config-enable_templates}
+
+If set to `yes`, [`.template`](../formats/#markdown) files will be interpreted
+as [SimpleTemplate][STpl] files, enabling embedded [Python][].
+
+[STpl]:     http://bottlepy.org/docs/dev/stpl.html#simpletemplate-syntax
+[Python]:   https://docs.python.org/2/
+
+##### `recursive_common_override` (default: `no`) {#config-recursive_common_ove}
+
+If set to `yes`, TachibanaSite will search ancestor directories when searching
+for common override files. This does not apply to `config.ini`, since the
+override system has to find that file first.
+
+#### Namespace: `Theme`
+
+Under the default [standard page](../themes/#StandardPage), key-value pairs
+under the `Theme` namespace are sent to the theme's
+[`support.css.php`](../themes/#support) as GET parameters.
+
+#### Example
+
+This is the `config.ini` for this site:
+
+<pre><code class="ini">[TachibanaSite]
+site_title = "TachibanaSite Docs | TachibanaTech"
+local_host_path = "/home/chris/tachibanatech.com"
+install_url = "/ts/tachibanasite"
+force_ssl = yes
+email = "<a>{{!people.obfuscate_email('mckinnc@email.sc.edu').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
+sender_email = "<a>{{!people.obfuscate_email('sender@tachibanatech.com').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
+enable_templates = yes
+
+[Theme]
+preset = "teal"</code></pre>
+
+### `copyright.markdown` {#copyright}
+
+Space for copyright or other licensing information. You can use `&copy;` for
+the copyright symbol.
+
+This file is eligible for [templating][].
+
+[templating]:   ../formats/#template
+
+### `favicon.png` {#favicon}
+
+This is the favicon for the site (the icon that shows up in the title bar in
+most browsers).
+
+### `header.markdown` {#header}
+
+This is the heading for the site (e.g. "TachibanaSite Documentation" here).
+Typically you should make the heading an `<h1>` element.
+
+This file is eligible for [templating][].
+
+### `navlist.markdown` {#navlist}
+
+This is the navigation list for the site. Typically the file should be a
+[template][templating] and take something like the following form:
+
+```markdown
+{{!'<%'}}
+import os, configIniUtils
+base = os.path.dirname(configIniUtils.get_install_url())
+{{!'%>'}}
+* [About]({{'{{'}}base{{'}}'}}/home/)
+* [Install]({{'{{'}}base{{'}}'}}/install/)
+```
+
+### `sidebar.markdown` {#sidebar}
+
+Typically you will want to override this file globally early on, since you
+probably don't want a link to this documentation sitting on the sidebar of your
+site.
+
+This file is eligible for [templating][].
+
+## *Typically Page-Specific* {#local}
+
+### `index.markdown` {#index}
+
+This is the actual content of the page.
+
+This file is eligible for [templating][].
+
+## *Miscellaneous* {#misc}
+
+### `breadcrumb.markdown` {#breadcrumb}
+
+This is for providing a path through the site, but it has rarely been used.
+
+This file is eligible for [templating][].
+
+### `themes/` {#themes}
+
+This directory can contain additional theme files. See [themes](../themes/) for
+more information.

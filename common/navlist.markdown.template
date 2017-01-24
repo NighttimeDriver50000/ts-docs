@@ -1,0 +1,10 @@
+%# vim: filetype=markdown :
+<%
+import os, configIniUtils
+base = os.path.dirname(configIniUtils.get_install_url())
+%>
+* [About]({{base}}/home/)
+* [Install]({{base}}/install/)
+* [File Formats]({{base}}/formats/)
+* [Overrides]({{base}}/overrides/)
+* [Structure]({{base}}/structure/)
