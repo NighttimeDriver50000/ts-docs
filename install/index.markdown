@@ -73,3 +73,27 @@ Now go to your site.  You should see a simple page with the default
 black-and-white theme, "**My Site**" at the top, and the content "*Hello,
 world!*".  If your page doesn't look like [this](/test/), go back and make sure
 you input everything correctly.
+
+Bootstrap
+---------
+
+To enable Bootstrap, edit your `config.ini`, adding the following lines:
+
+```ini
+theme_name = "bootstrap"
+
+[Modules]
+mobiletext_disabled = yes
+bootstrap_disabled = no
+bootstrapify_disabled = no
+```
+
+Then rename your `header.markdown` to `header.markdown.template` and edit it:
+
+```markdown
+% import os, configIniUtils
+% base = os.path.dirname(configIniUtils.get_install_url())
+# [My Site]({{base}}/bootstrap/)
+```
+
+Your page should now look like [this](/test/bootstrap/).

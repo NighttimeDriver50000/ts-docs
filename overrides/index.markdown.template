@@ -15,14 +15,16 @@ The files are searched for in this order:
     enabled, each directory from the current up to the
     [local host path](#config-local_host_path).
 
-3.  *&lt;install path&gt;*`/../common/`
+3.  <code><em>&lt;install path&gt;</em>/../common/</code>
 
-4.  *&lt;install path&gt;*`/common/` (the aforementioned defaults)
+4.  <code><em>&lt;install path&gt;</em>/common/</code> (the aforementioned
+    defaults)
 
 ## *Typically Site-Global* {#global}
 
-These files are typically placed in *&lt;install path&gt;*`/../common/`. They
-*can* be overridden for particular pages, but usually are not for most.
+These files are typically placed in <code><em>&lt;install
+path&gt;</em>/../common/</code>. They *can* be overridden for particular pages,
+but usually are not for most.
 
 ### `config.ini` {#config}
 
@@ -98,6 +100,14 @@ Under the default [standard page](../themes/#StandardPage), key-value pairs
 under the `Theme` namespace are sent to the theme's
 [`support.css.php`](../themes/#support) as GET parameters.
 
+#### Namespace: `Modules`
+
+##### <code><em>&lt;module&gt;</em>_disabled</code> (default: `no`) {#config-module_disabled}
+
+If <code><em>&lt;module&gt;</em>_disabled</code> exists and is `yes`, that
+module will refuse to load. All modules except for `bootstrap` and
+`bootstrapify` are enabled by default.
+
 #### Example
 
 This is the `config.ini` for this site:
@@ -110,9 +120,12 @@ force_ssl = yes
 email = "<a>{{!people.obfuscate_email('mckinnc@email.sc.edu').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
 sender_email = "<a>{{!people.obfuscate_email('sender@tachibanatech.com').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
 enable_templates = yes
+theme_name = "bootstrap"
 
-[Theme]
-preset = "teal"</code></pre>
+[Modules]
+mobiletext_disabled = yes
+bootstrap_disabled = no
+bootstrapify_disabled = no</code></pre>
 
 ### `copyright.markdown` {#copyright}
 
@@ -149,7 +162,7 @@ base = os.path.dirname(configIniUtils.get_install_url())
 * [Install]({{'{{'}}base{{'}}'}}/install/)
 ```
 
-### `sidebar.markdown` {#sidebar}
+### `sidebar.markdown` {#_sidebar}
 
 Typically you will want to override this file globally early on, since you
 probably don't want a link to this documentation sitting on the sidebar of your

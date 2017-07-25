@@ -1,3 +1,5 @@
+## TachibanaSite
+
 TachibanaSite is a web framework used on this site ([tachibanatech.com](/)) and
 the USC AFRL site ([afrl.cse.sc.edu](http://afrl.cse.sc.edu)).  It is made to
 suit the needs of the AFRL and my (Chris McKinney's)
@@ -15,6 +17,7 @@ Core Features
 *   Themes include almost all structural and presentational elements, leaving
     the writer to focus on content.
 *   Module system to extend stylesheets, javascript, and python modules.
+*   Responsive design based on [Bootstrap](https://getbootstrap.com/).
 
 [Markdown]: ../formats/#markdown
 [Python]:   ../formats/#template
