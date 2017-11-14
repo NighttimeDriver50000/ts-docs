@@ -1,2 +1,2 @@
-[TachibanaSite Docs](/ts/)
+[TS Docs](/ts/)
 ===========================
