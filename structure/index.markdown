@@ -4,7 +4,7 @@ The typical structure of a TachibanaSite installation:
 
 -   *Site Directory*
 
-    -   [`index.php`](#autoredir)
+    -   <code>[index.php](#autoredir)</code>
 
     -   [*Page Directories*](#pagedirs)
 
@@ -12,7 +12,7 @@ The typical structure of a TachibanaSite installation:
 
         -   [*Site-Global Overrides*](../overrides/#global)
 
-    -   [`tachibanasite/`][repo]
+    -   <code>[tachibanasite/][repo]</code>
 
         -   `common/`
 
@@ -26,7 +26,7 @@ The typical structure of a TachibanaSite installation:
 
             -   *Testing and Mail Confirmation Pages*
 
-        -   [`php-markdown/`][php-markdown]
+        -   <code>[php-markdown/][php-markdown]</code>
 
             -   [*Micelf's PHP Markdown Extra*][PHPME]
 
@@ -34,7 +34,7 @@ The typical structure of a TachibanaSite installation:
 
             -   *The TachibanaSite Core*
 
-        -   [`LICENSE`](../tachibanasite/LICENSE)
+        -   <code>[LICENSE](../tachibanasite/LICENSE)</code>
 
         -   `README.markdown`
 
@@ -65,4 +65,4 @@ the directory a page is to put a file called `index.php` in the directory:
 <pre><code class="php">&lt;?php include '<em>&lt;Path to TachibanaSite Directory&gt;</em>/utils/FindStandardPage.php' ?></code></pre>
 
 Then you can place override files in that directory (especially
-[`index.markdown`](../overrides/#index)) to fill out the page.
+<code>[index.markdown](../overrides/#index)</code>) to fill out the page.

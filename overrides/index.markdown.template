@@ -68,7 +68,7 @@ your site.
 
 ##### `email` (default: `"example@example.com"`) {#config-email}
 
-Set this to your email address. [`SendMail.php`][SendMail] will email to this
+Set this to your email address. <code>[SendMail.php][SendMail]</code> will email to this
 email address.
 
 [SendMail]: https://github.com/NighttimeDriver50000/tachibanasite/blob/master/utils/SendMail.php
@@ -78,11 +78,11 @@ email address.
 Set this to *&lt;some name&gt;*@*&lt;your server&gt;*. The default will
 *probably* send correctly, but most email systems will flag messages from
 `localhost` as spam, so you should probably change it if you plan to use
-[`SendMail.php`][SendMail].
+<code>[SendMail.php][SendMail]</code>.
 
 ##### `enable_templates` (default: `no`) {#config-enable_templates}
 
-If set to `yes`, [`.template`](../formats/#markdown) files will be interpreted
+If set to `yes`, <code>[.template](../formats/#markdown)</code> files will be interpreted
 as [SimpleTemplate][STpl] files, enabling embedded [Python][].
 
 [STpl]:     http://bottlepy.org/docs/dev/stpl.html#simpletemplate-syntax
@@ -98,15 +98,15 @@ override system has to find that file first.
 
 Under the default [standard page](../themes/#StandardPage), key-value pairs
 under the `Theme` namespace are sent to the theme's
-[`support.css.php`](../themes/#support) as GET parameters.
+<code>[support.css.php](../themes/#support)</code> as GET parameters.
 
 #### Namespace: `Modules`
 
 ##### <code><em>&lt;module&gt;</em>_disabled</code> (default: `no`) {#config-module_disabled}
 
 If <code><em>&lt;module&gt;</em>_disabled</code> exists and is `yes`, that
-module will refuse to load. All modules except for `bootstrap` and
-`bootstrapify` are enabled by default.
+module will refuse to load. All modules except for `bootstrap`, `bootstrap4`,
+and `bootstrapify` are enabled by default.
 
 #### Example
 
@@ -114,18 +114,20 @@ This is the `config.ini` for this site:
 
 <pre><code class="ini">[TachibanaSite]
 site_title = "TachibanaSite Docs | TachibanaTech"
-local_host_path = "/home/chris/tachibanatech.com"
+local_host_path = "/home/ntd5/tachibanatech.com"
 install_url = "/ts/tachibanasite"
 force_ssl = yes
 email = "<a>{{!people.obfuscate_email('mckinnc@email.sc.edu').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
 sender_email = "<a>{{!people.obfuscate_email('sender@tachibanatech.com').replace('``', '<code>', 1).replace('``', '</code>')}}</a>"
 enable_templates = yes
-theme_name = "bootstrap"
+theme_name = "coloredpencil"
+
+[Theme]
+preset = "default"
 
 [Modules]
 mobiletext_disabled = yes
-bootstrap_disabled = no
-bootstrapify_disabled = no</code></pre>
+bootstrap4_disabled = no</code></pre>
 
 ### `copyright.markdown` {#copyright}
 
@@ -143,8 +145,8 @@ most browsers).
 
 ### `header.markdown` {#header}
 
-This is the heading for the site (e.g. "TachibanaSite Documentation" here).
-Typically you should make the heading an `<h1>` element.
+This is the heading for the site (e.g. "TS Docs" here). Typically you should
+make the heading an `<h1>` element.
 
 This file is eligible for [templating][].
 

@@ -17,8 +17,8 @@ Run:
 git clone https://github.com/NighttimeDriver50000/tachibanasite.git
 ```
 
-Make a directory called [`common`](../overrides/), and put a file in it called
-[`config.ini`](../overrides/#config):
+Make a directory called <code>[common](../overrides/)</code>, and put a file in
+it called <code>[config.ini](../overrides/#config)</code>:
 
 ```ini
 [TachibanaSite]
@@ -30,14 +30,14 @@ enable_templates = yes
 Quick Start
 -----------
 
-Create a file `common/`[`header.markdown`](../overrides/#header):
+Create a file <code>common/[header.markdown](../overrides/#header)</code>:
 
 ```markdown
 # My Site
 ```
 
 Create a file
-`common/`[`navlist.markdown`](../overrides/#navlist)`.`[`template`](../formats/#template):
+<code>common/[navlist.markdown](../overrides/#navlist).[template](../formats/#template)</code>:
 
 ```markdown
 % import os, configIniUtils

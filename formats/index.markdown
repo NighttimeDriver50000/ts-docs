@@ -23,9 +23,9 @@ TachibanaSite uses Python 2.
 ### `.ini` {#ini}
 
 Configuration files for TachibanaSite are in [php.ini format][ini]. For users,
-the only `.ini` file is the overridable file [`config.ini`][config]. For
-developers, TachibanaSite [modules](../modules/) that add CSS or Javascript
-need a [`module.ini`][module].
+the only `.ini` file is the overridable file <code>[config.ini][config]</code>.
+For developers, TachibanaSite [modules](../modules/) that add CSS or Javascript
+need a <code>[module.ini][module]</code>.
 
 [ini]:      https://secure.php.net/manual/en/function.parse-ini-file.php
 [config]:   ../overrides/#config
@@ -36,7 +36,7 @@ need a [`module.ini`][module].
 Much of TachibanaSite is written in [PHP 5][], but for users, the only relevant
 PHP files are the `index.php` files that must be in each [page
 directory](../structure/). [Themes][] also need to have a
-[`StandardPage.php`][SP].
+<code>[StandardPage.php][SP]</code>.
 
 [PHP 5]:    http://php.net/
 [SP]:       ../themes/#StandardPage
@@ -49,8 +49,9 @@ Formats for Theme, Module, and TS Devs
 Both themes and modules can add [JavaScript][JS] and [CSS][] files. For more
 details, see [Themes][] and [Modules][].
 
-Note that if you are using [`LoadJavascript.php`][LJ.php] (as the default theme
-does), [jQuery][] and [`utils.js`][utils.js] are automatically included.
+Note that if you are using <code>[LoadJavascript.php][LJ.php]</code> (as the
+default theme does), [jQuery][] and <code>[utils.js][utils.js]</code> are
+automatically included.
 
 [JS]:       https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [CSS]:      https://developer.mozilla.org/en-US/docs/Web/CSS
