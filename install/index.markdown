@@ -15,6 +15,9 @@ Run:
 
 ```sh
 git clone https://github.com/NighttimeDriver50000/tachibanasite.git
+cd tachibanasite
+git submodule update --init --recursive
+cd ..
 ```
 
 Make a directory called <code>[common](../overrides/)</code>, and put a file in
