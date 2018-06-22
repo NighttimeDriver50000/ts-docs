@@ -1,5 +1,23 @@
-Installation
-------------
+AutoTS Installation
+-------------------
+
+AutoTS is still quite alpha, but the installer works pretty well. You can
+install with AutoTS and then edit files manually, and you shouldn't run into
+any issues. If you do encounter issues, please submit them to the
+[GitHub project](https://github.com/NighttimeDriver50000/tachibanasite/issues).
+
+To install with AutoTS, go into the directory where you want your site, and
+run:
+
+```shell
+$ curl -O https://raw.githubusercontent.com/NighttimeDriver50000/tachibanasite/master/_install_ts.sh
+$ sh _install_ts.sh
+```
+
+Then follow the on-screen instructions.
+
+Manual Installation
+-------------------
 
 Enter the directory where you want to put your site:
 
